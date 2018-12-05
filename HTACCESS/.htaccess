@@ -1,0 +1,21 @@
+RewriteEngine on
+
+Options -Indexes
+SetEnv PHP_VER 7_0
+
+#default index
+DirectoryIndex test.php
+
+#list error
+ErrorDocument 403 for.php
+ErrorDocument 404 "/HTACCESS/error/error_404.php"
+
+#url
+RewriteRule ^contact$ ?ref=1
+
+#log & passwd
+AuthUserFile log.txt
+AuthName "Accès protégé"
+AuthType Basic
+Require valid-user
+
